@@ -1,0 +1,25 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="cusAgent">
+    <output-path>$PROJECT_DIR$/out/production/instrumentDemo/com/rxf113/instrument/agent</output-path>
+    <root id="archive" name="cusAgent.jar">
+      <element id="directory" name="com">
+        <element id="directory" name="rxf113">
+          <element id="directory" name="instrument">
+            <element id="directory" name="agent">
+              <element id="directory" name="asm">
+                <element id="file-copy" path="$PROJECT_DIR$/src/com/rxf113/instrument/agent/asm/CusAsmUtil.class" />
+                <element id="file-copy" path="$PROJECT_DIR$/src/com/rxf113/instrument/agent/asm/CusClassVisitor.class" />
+                <element id="file-copy" path="$PROJECT_DIR$/src/com/rxf113/instrument/agent/asm/CusMethodVisitor.class" />
+              </element>
+              <element id="file-copy" path="$PROJECT_DIR$/src/com/rxf113/instrument/agent/CusAgent.class" />
+              <element id="file-copy" path="$PROJECT_DIR$/src/com/rxf113/instrument/agent/CusAgent$CusClassFileTransformer.class" />
+            </element>
+          </element>
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/out/production/instrumentDemo/com/rxf113/instrument/agent/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>
