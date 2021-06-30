@@ -1,12 +1,3 @@
----
-title: "**<center>Arthas 等 Java 诊断工具原理浅析"
-date: "2021-06-28"
-tags: ["arthas"，"java","ASM"]
-description: "看了会arthas源码，结合资料，用一个小 demo 展示下 arthas 的核心实现"
-author: "rxf113"
-image: "https://arthas.aliyun.com/img/arthas_black.png"
----
-
 ###  **<center>Arthas 等 Java 诊断工具核心原理浅析 </center>**
 - - - - - -
 [项目地址](#address)
