@@ -18,7 +18,7 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/out/production/instrumentDemo/com/rxf113/instrument/agent/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/src/com/rxf113/instrument/agent/META-INF/MANIFEST.MF" />
       </element>
     </root>
   </artifact>

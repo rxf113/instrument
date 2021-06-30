@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="jsse">
-    <CLASSES>
-      <root url="jar://C:/Program Files/Java/jre1.8.0_241/lib/jsse.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

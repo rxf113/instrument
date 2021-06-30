@@ -19,40 +19,35 @@ public class CusAgent {
 
     public static void agentmain(String agentArgs, Instrumentation inst) throws UnmodifiableClassException, ClassNotFoundException {
         System.out.println("method agentmain invoked");
-        //默认 [className-methodName-fieldName-value] 格式
+        //默认 [className-methodName-printContent] 格式
         String[] args = agentArgs.split("-");
-        inst.addTransformer(new CusClassFileTransformer(args[0], args[1], args[2], args[3]), true);
-
+        inst.addTransformer(new CusClassFileTransformer(args[0], args[1],args[2]), true);
+        //触发transform执行
         inst.retransformClasses(Class.forName(args[0]));
     }
 
-
     static class CusClassFileTransformer implements ClassFileTransformer {
 
-        public CusClassFileTransformer(String className, String methodName, String fieldName, String value) {
+        public CusClassFileTransformer(String className, String methodName,String printContent) {
             this.className = className;
             this.methodName = methodName;
-            this.fieldName = fieldName;
-            this.value = Integer.parseInt(value);
+            this.printContent = printContent;
         }
 
         private String className;
 
         private String methodName;
 
-        private String fieldName;
-
-        private int value;
+        private String printContent;
 
         @Override
         public byte[] transform(ClassLoader loader, String clsName, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
             //判断是不是要处理的类
             if (clsName.matches(".*" + className)) {
                 //修改此方法
-                //使用ASM框架 修改方法使其返回输入的参数
-                return CusAsmUtil.changeMethodByClassBufferMethodVal(classfileBuffer, methodName, fieldName, value);
+                //使用ASM框架 修改方法使其添加一条打印
+                return CusAsmUtil.changeMethodByClassBufferMethodVal(classfileBuffer, methodName,printContent);
             }
-
             return new byte[0];
         }
     }

@@ -10,10 +10,10 @@ import org.objectweb.asm.ClassWriter;
  * @author rxf113
  */
 public class CusAsmUtil {
-    public static byte[] changeMethodByClassBufferMethodVal(byte[] classfileBuffer, String methodName, String fieldName, int val) {
+    public static byte[] changeMethodByClassBufferMethodVal(byte[] classfileBuffer, String methodName,String printContent) {
         ClassReader classReader = new ClassReader(classfileBuffer);
         ClassWriter classWriter = new ClassWriter(classReader, ClassWriter.COMPUTE_FRAMES | ClassWriter.COMPUTE_MAXS);
-        ClassVisitor cv = new CusClassVisitor(classWriter, methodName, fieldName, val);
+        ClassVisitor cv = new CusClassVisitor(classWriter, methodName,printContent);
         classReader.accept(cv, 0);
         return classWriter.toByteArray();
     }
